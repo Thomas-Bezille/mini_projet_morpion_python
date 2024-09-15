@@ -11,3 +11,5 @@ def draw() -> None:
             print(map[i][j], end="")
         print()
 
+while True:
+    a = int(input("[1-9] ? > "))
