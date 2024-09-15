@@ -25,6 +25,14 @@ def check_win() -> bool:
         return True
     return False
 
+def check_draw() -> bool:
+    '''Check if there are still empty cells in the matrix'''
+    for i in range(3):
+        for j in range(3):
+            if map[i][j] == " . ":
+                return False
+    return True
+
 draw()
 
 while True:
@@ -34,4 +42,10 @@ while True:
     if map[row][cullumn] == " . ":
         map[row][cullumn] = " X " if player == "Joueur 1" else " O "
     draw()
+    if check_win():
+        print(f"{player} a gagné !")
+        break
+    if check_draw():
+        print("Match nul !")
+        break
     player = "Joueur 2" if player == "Joueur 1" else "Joueur 1"
